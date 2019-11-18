@@ -57,11 +57,11 @@ public class Jogo extends Application {
         imagens = new HashMap<>();
 
         // Armazena as imagens dos personagens
-        Image aux = new Image("file:Imagens\\img1.jpg");
+        Image aux = new Image("file:Imagens\\civilian.jpg");
         imagens.put("Normal", aux);
         aux = new Image("file:Imagens\\img2.jpg");
         imagens.put("Infectado", aux);
-        aux = new Image("file:Imagens\\img8.jpg");
+        aux = new Image("file:Imagens\\zombie.jpg");
         imagens.put("Zumbi", aux);
         aux = new Image("file:Imagens\\img6.jpg");
         imagens.put("Morto", aux);
