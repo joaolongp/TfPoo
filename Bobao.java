@@ -14,6 +14,15 @@ public class Bobao extends Personagem {
     }
 
     @Override
+    public void cura(){
+        if(this.infectado()){
+            super.cura();
+            this.setImage("Normal");
+            this.getCelula().setImageFromPersonagem();
+        }   
+    }
+
+    @Override
     public void atualizaPosicao() {
         // Não se mexe
     }

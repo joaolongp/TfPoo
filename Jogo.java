@@ -65,8 +65,12 @@ public class Jogo extends Application {
         imagens.put("Zumbi", aux);
         aux = new Image("file:Imagens\\img6.jpg");
         imagens.put("Morto", aux);
-        aux = new Image("file:Imagens\\img9.jpg");
+        aux = new Image("file:Imagens\\nemesis.jpg");
         imagens.put("Nemesis", aux);
+        aux = new Image("file:Imagens\\medic.jpg");
+        imagens.put("Medico", aux);
+        aux = new Image("file:Imagens\\police.jpg");
+        imagens.put("Policial", aux);
         aux = new Image("file:Imagens\\back.jpg");
         imagens.put("Vazio", aux);
 
@@ -132,6 +136,20 @@ public class Jogo extends Application {
                 }
             }
         }
+
+        // Cria 2 Medicos
+        for(int i=0;i<2;i++){
+            boolean posOk = false;
+            while(!posOk){
+                int lin = random.nextInt(NLIN);
+                int col = random.nextInt(NCOL);
+                if (this.getCelula(lin, col).getPersonagem() == null){
+                    personagens.add(new Medico(lin,col));
+                    posOk = true;
+                }
+            }
+        }
+
         // Cria Nemesis
         boolean posOk = false;
         while(!posOk){

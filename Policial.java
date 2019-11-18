@@ -1,4 +1,9 @@
-public class Policial{
+public class Policial extends Personagem{
+
+    public Policial(int linInicial,int colInicial){
+        super(15,"Policial",linInicial,colInicial);
+    }
+
     @Override
     public void atualizaPosicao() {
         int dirLin = Jogo.getInstance().aleatorio(3)-1;
