@@ -17,8 +17,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 public class Jogo extends Application {
-    public static final int CELL_WIDTH = 20;
-    public static final int CELL_HEIGHT = 20;
+    public static final int CELL_WIDTH = 60;
+    public static final int CELL_HEIGHT = 60;
     public static final int NLIN = 10;
     public static final int NCOL = 10;
 
