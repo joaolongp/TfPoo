@@ -65,6 +65,8 @@ public class Jogo extends Application {
         imagens.put("Zumbi", aux);
         aux = new Image("file:Imagens\\img6.jpg");
         imagens.put("Morto", aux);
+        aux = new Image("file:Imagens\\img9.jpg");
+        imagens.put("Nemesis", aux);
         aux = new Image("file:Imagens\\back.jpg");
         imagens.put("Vazio", aux);
 
@@ -128,6 +130,16 @@ public class Jogo extends Application {
                     personagens.add(new Zumbi(lin,col));
                     posOk = true;
                 }
+            }
+        }
+        // Cria Nemesis
+        boolean posOk = false;
+        while(!posOk){
+            int lin = random.nextInt(NLIN);
+            int col = random.nextInt(NCOL);
+            if (this.getCelula(lin, col).getPersonagem() == null){
+                personagens.add(new Nemesis(lin,col));
+                posOk = true;
             }
         }
 
