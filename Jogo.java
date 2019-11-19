@@ -178,6 +178,17 @@ public class Jogo extends Application {
             }
         }
 
+        // Cria Policial
+        boolean posOk = false;
+        while(!posOk){
+            int lin = random.nextInt(NLIN);
+            int col = random.nextInt(NCOL);
+            if (this.getCelula(lin, col).getPersonagem() == null){
+                personagens.add(new Policial(lin,col));
+                posOk = true;
+            }
+        }
+
         // Define o botao que avança a simulação
         Button avanca = new Button("NextStep");
         avanca.setOnAction(e->avancaSimulacao());
@@ -206,12 +217,13 @@ public class Jogo extends Application {
         long vivos = personagens
                     .stream()
                     .filter(p->!(p instanceof Zumbi))
+                    .filter(p->!(p instanceof Nemesis))
                     .filter(p->p.estaVivo())
                     .count();
         if (vivos == 0){
             Alert msgBox = new Alert(AlertType.INFORMATION);
             msgBox.setHeaderText("Fim de Jogo");
-            msgBox.setContentText("Todos os boboes morreram!");
+            msgBox.setContentText("Todas as pessoas morreram!");
             msgBox.showAndWait();
             System.exit(0);
         }

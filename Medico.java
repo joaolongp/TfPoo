@@ -24,6 +24,13 @@ public class Medico extends Personagem{
     }
 
     @Override
+    public void morre() {
+        super.morre();
+        this.setImage("Medica Morta");
+        this.getCelula().setImageFromPersonagem();
+    }
+
+    @Override
     public void atualizaPosicao() {
         if(this.estaVivo()){
             int dirLin = Jogo.getInstance().aleatorio(3)-1;
@@ -75,7 +82,7 @@ public class Medico extends Personagem{
     public void verificaEstado() {
         // Se esta morto retorna
         if (!this.estaVivo()){
-            return;
+            this.morre();
         }
         // Se esta infectado perde energia a cada passo
         if (this.infectado()) {

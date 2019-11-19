@@ -1,11 +1,36 @@
-public class Policial extends Personagem{
+public Medico(int linInicial,int colInicial){
+    super(20,"Medica",linInicial,colInicial);
+}
 
-    public Policial(int linInicial,int colInicial){
-        super(15,"Policial",linInicial,colInicial);
+@Override
+public void infecta(){
+    if (this.infectado()){
+        return;
     }
+    super.infecta();
+    this.setImage("Policial Infectado");
+    this.getCelula().setImageFromPersonagem();   
+}
 
-    @Override
-    public void atualizaPosicao() {
+@Override
+public void cura(){
+    if(this.infectado()){
+        super.cura();
+        this.setImage("Policial");
+        this.getCelula().setImageFromPersonagem();
+    }   
+}
+
+@Override
+public void morre() {
+    super.morre();
+    this.setImage("Policial Morto");
+    this.getCelula().setImageFromPersonagem();
+}
+
+@Override
+public void atualizaPosicao() {
+    if(this.estaVivo()){
         int dirLin = Jogo.getInstance().aleatorio(3)-1;
         int dirCol = Jogo.getInstance().aleatorio(3)-1;
         int oldLin = this.getCelula().getLinha();
@@ -25,9 +50,11 @@ public class Policial extends Personagem{
             Jogo.getInstance().getCelula(lin, col).setPersonagem(this);
         }
     }
+}
 
-    @Override
-    public void influenciaVizinhos() {
+@Override
+public void influenciaVizinhos() {
+    if(this.estaVivo()){
         int lin = this.getCelula().getLinha();
         int col = this.getCelula().getColuna();
         for(int l=lin-1;l<=lin+1;l++){
@@ -47,10 +74,22 @@ public class Policial extends Personagem{
             }
         }
     }
+}
 
-    @Override
-    public void verificaEstado() {
-        // Como não sofre influencia de ninguém, o estado nunca muda
+@Override
+public void verificaEstado() {
+    // Se esta morto retorna
+    if (!this.estaVivo()){
+        this.morre();
+    }
+    // Se esta infectado perde energia a cada passo
+    if (this.infectado()) {
+        diminuiEnergia(2);
+        // Se não tem mais energia morre
+        if (this.getEnergia() == 0) {
+            this.setImage("Medica Morta");
+            this.getCelula().setImageFromPersonagem();
+        }
     }
 }
 }
