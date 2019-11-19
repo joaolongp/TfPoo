@@ -87,7 +87,7 @@ public class Jogo extends Application {
             //nemesis
         aux = new Image("file:Imagens\\Personagens\\nemesis.jpg");//fazer
         imagens.put("Nemesis", aux);
-        
+
         aux = new Image("file:Imagens\\back.jpg");
         imagens.put("Vazio", aux);
 
