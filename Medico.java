@@ -1,7 +1,7 @@
 public class Medico extends Personagem{
 
     public Medico(int linInicial,int colInicial){
-        super(10,"Medico",linInicial,colInicial);
+        super(10,"Medica",linInicial,colInicial);
     }
 
     @Override

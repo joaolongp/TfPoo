@@ -1,6 +1,6 @@
 public class Bobao extends Personagem {
     public Bobao(int linInicial, int colInicial) {
-        super(10, "Normal", linInicial, colInicial);
+        super(10, "Civil", linInicial, colInicial);
     }
 
     @Override
@@ -9,7 +9,7 @@ public class Bobao extends Personagem {
             return;
         }
         super.infecta();
-        this.setImage("Infectado");
+        this.setImage("Civil Infectado");
         this.getCelula().setImageFromPersonagem();   
     }
 
@@ -17,7 +17,7 @@ public class Bobao extends Personagem {
     public void cura(){
         if(this.infectado()){
             super.cura();
-            this.setImage("Normal");
+            this.setImage("Civil");
             this.getCelula().setImageFromPersonagem();
         }   
     }
@@ -43,7 +43,7 @@ public class Bobao extends Personagem {
             diminuiEnergia(2);
             // Se não tem mais energia morre
             if (this.getEnergia() == 0) {
-                this.setImage("Morto");
+                this.setImage("Civil Morto");
                 this.getCelula().setImageFromPersonagem();
             }
         }

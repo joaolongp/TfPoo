@@ -40,6 +40,10 @@ public abstract class Personagem {
         infectado = false;
     }
 
+    public void morre(){
+        diminuiEnergia(getEnergia());
+    }
+
     public boolean estaVivo(){
         return getEnergia() > 0;
     }

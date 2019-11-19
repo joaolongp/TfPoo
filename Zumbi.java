@@ -26,6 +26,13 @@ public class Zumbi extends Personagem {
     }
 
     @Override
+    public void morre(){
+        super.morre();
+        this.setImage("Zumbi Morto");
+        this.getCelula().setImageFromPersonagem();
+    }
+
+    @Override
     public void influenciaVizinhos() {
         int lin = this.getCelula().getLinha();
         int col = this.getCelula().getColuna();
@@ -44,12 +51,18 @@ public class Zumbi extends Personagem {
                     }
                 }
             }
-        }
-        
+        } 
     }
 
     @Override
     public void verificaEstado() {
-        // Como não sofre influencia de ninguém, o estado nunca muda
+        // Se esta morto retorna
+        if (!this.estaVivo()){
+            return;
+        }
+        if (this.getEnergia() == 0) {
+            this.setImage("Zumbi Morto");
+            this.getCelula().setImageFromPersonagem();
+        }
     }
 }

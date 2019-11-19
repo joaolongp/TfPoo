@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+
 public class Jogo extends Application {
     public static final int CELL_WIDTH = 60;
     public static final int CELL_HEIGHT = 60;
@@ -57,20 +58,36 @@ public class Jogo extends Application {
         imagens = new HashMap<>();
 
         // Armazena as imagens dos personagens
-        Image aux = new Image("file:Imagens\\civilian.jpg");
-        imagens.put("Normal", aux);
-        aux = new Image("file:Imagens\\img2.jpg");
-        imagens.put("Infectado", aux);
-        aux = new Image("file:Imagens\\zombie.jpg");
-        imagens.put("Zumbi", aux);
-        aux = new Image("file:Imagens\\img6.jpg");
-        imagens.put("Morto", aux);
-        aux = new Image("file:Imagens\\nemesis.jpg");
-        imagens.put("Nemesis", aux);
-        aux = new Image("file:Imagens\\medic.jpg");
-        imagens.put("Medico", aux);
-        aux = new Image("file:Imagens\\police.jpg");
+            //civil
+        Image aux = new Image("file:Imagens\\Personagens\\civilian.jpg");
+        imagens.put("Civil", aux);
+        aux = new Image("file:Imagens\\Personagens\\infectedcivilian.jpg");
+        imagens.put("Civil Infectado", aux);
+        aux = new Image("file:Imagens\\Personagens\\deadcivilian.jpg");
+        imagens.put("Civil Morto", aux);
+            //medica
+        aux = new Image("file:Imagens\\Personagens\\medic.jpg");//fazer
+        imagens.put("Medica", aux);
+        aux = new Image("file:Imagens\\Personagens\\infectedmedic.jpg");//fazer
+        imagens.put("Medica Infectada", aux);
+        aux = new Image("file:Imagens\\Personagens\\deadmedic.jpg");//fazer
+        imagens.put("Medica Morta", aux);
+            //policial
+        aux = new Image("file:Imagens\\Personagens\\police.jpg");
         imagens.put("Policial", aux);
+        aux = new Image("file:Imagens\\Personagens\\infectedpolice.jpg");
+        imagens.put("Policial Infectado", aux);
+        aux = new Image("file:Imagens\\Personagens\\deadpolice.jpg");
+        imagens.put("Policial Morto", aux);
+            //zumbi
+        aux = new Image("file:Imagens\\Personagens\\zombie.jpg");
+        imagens.put("Zumbi", aux);
+        aux = new Image("file:Imagens\\Personagens\\deadzombie.jpg");
+        imagens.put("Zumbi Morto", aux);
+            //nemesis
+        aux = new Image("file:Imagens\\Personagens\\nemesis.jpg");//fazer
+        imagens.put("Nemesis", aux);
+        
         aux = new Image("file:Imagens\\back.jpg");
         imagens.put("Vazio", aux);
 
