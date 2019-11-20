@@ -80,16 +80,12 @@ public class Bobao extends Personagem {
 
     @Override
     public void verificaEstado() {
-        if (!this.estaVivo()){
-            this.morre();
-        }
         // Se esta infectado perde energia a cada passo
         if (this.infectado()) {
             diminuiEnergia(2);
             // Se não tem mais energia morre
             if (this.getEnergia() == 0) {
-                this.setImage("Civil Morto");
-                this.getCelula().setImageFromPersonagem();
+                this.morre();
             }
         }
     }

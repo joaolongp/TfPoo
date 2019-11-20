@@ -1,4 +1,5 @@
 public class Zumbi extends Personagem {
+    int fome = 0;
     public Zumbi(int linInicial,int colInicial){
         super(20,"Zumbi",linInicial,colInicial);
     }
@@ -59,22 +60,20 @@ public class Zumbi extends Personagem {
                             // Se não for nulo, infecta
                             if (p != null){
                                 p.infecta();
+                                fome = -1;
                             }
                         }
                     }
                 }
             } 
+            fome += 1;
         }
     }
 
     @Override
     public void verificaEstado() {
-        if (!this.estaVivo()){
+        if (this.getEnergia() == 0 || fome == 5) {
             this.morre();
-        }
-        if (this.getEnergia() == 0) {
-            this.setImage("Zumbi Morto");
-            this.getCelula().setImageFromPersonagem();
         }
     }
 }

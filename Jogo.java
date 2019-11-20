@@ -211,8 +211,8 @@ public class Jogo extends Application {
     public void avancaSimulacao(){
         // Avança um passo em todos os personagens
         personagens.forEach(p->{
-            p.atualizaPosicao();
             p.verificaEstado();
+            p.atualizaPosicao();
             p.influenciaVizinhos();
         });
         // Verifica se o jogo acabou

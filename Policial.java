@@ -56,6 +56,7 @@ public class Policial extends Personagem{
 
     @Override
     public void influenciaVizinhos() {
+        boolean atacou = false;
         if(this.estaVivo()){
             int lin = this.getCelula().getLinha();
             int col = this.getCelula().getColuna();
@@ -70,27 +71,25 @@ public class Policial extends Personagem{
                             // Se não for nulo e for zumbi, mata
                             if (p != null && p.ehZumbi() && p.estaVivo()){
                                 p.diminuiEnergia(10);
-                                break;
+                                atacou = true;
                             }
                         }
                     }
+                    if(atacou) break;
                 }
+                if(atacou) break;
             }
         }
     }
 
     @Override
     public void verificaEstado() {
-        if (!this.estaVivo()){
-            this.morre();
-        }
         // Se esta infectado perde energia a cada passo
         if (this.infectado()) {
             diminuiEnergia(1);
             // Se não tem mais energia morre
             if (this.getEnergia() == 0) {
-                this.setImage("Policial Morto");
-                this.getCelula().setImageFromPersonagem();
+                this.morre();
             }
         }
     }
