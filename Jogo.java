@@ -127,7 +127,7 @@ public class Jogo extends Application {
         
         // Cria 10 boboes aleatorios
         for(int i=0;i<10;i++){
-            // Lembrte: quando um personagem é criado ele se vincula
+            // Lembrete: quando um personagem é criado ele se vincula
             // automaticamente na célula indicada nos parametros
             // linha e coluna (ver o construtor de Personagem)
             boolean posOk = false;

@@ -4,6 +4,13 @@ public class Zumbi extends Personagem {
     }
 
     @Override
+    public void morre(){
+        super.morre();
+        this.setImage("Zumbi Morto");
+        this.getCelula().setImageFromPersonagem();
+    }
+
+    @Override
     public void atualizaPosicao() {
         if(this.estaVivo()){
             int dirLin = Jogo.getInstance().aleatorio(3)-1;
@@ -25,13 +32,6 @@ public class Zumbi extends Personagem {
                 Jogo.getInstance().getCelula(lin, col).setPersonagem(this);
             }
         }
-    }
-
-    @Override
-    public void morre(){
-        super.morre();
-        this.setImage("Zumbi Morto");
-        this.getCelula().setImageFromPersonagem();
     }
 
     @Override
