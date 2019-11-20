@@ -1,7 +1,7 @@
 public class Policial extends Personagem{
 
     public Policial(int linInicial,int colInicial){
-        super(10,"Policial",linInicial,colInicial);
+        super(20,"Policial",linInicial,colInicial);
     }
 
     @Override
@@ -67,9 +67,9 @@ public class Policial extends Personagem{
                         if (!( lin == l && col == c)){
                             // Recupera o personagem da célula vizinha
                             Personagem p = Jogo.getInstance().getCelula(l,c).getPersonagem();
-                            // Se não for nulo e estiver infectado, cura
+                            // Se não for nulo e for zumbi, mata
                             if (p != null && p.ehZumbi() && p.estaVivo()){
-                                p.morre();
+                                p.diminuiEnergia(20);
                             }
                         }
                     }
@@ -80,7 +80,6 @@ public class Policial extends Personagem{
 
     @Override
     public void verificaEstado() {
-        // Se esta morto retorna
         if (!this.estaVivo()){
             this.morre();
         }

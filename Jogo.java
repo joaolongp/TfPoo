@@ -161,7 +161,7 @@ public class Jogo extends Application {
                 int lin = random.nextInt(NLIN);
                 int col = random.nextInt(NCOL);
                 if (this.getCelula(lin, col).getPersonagem() == null){
-                    personagens.add(new Medico(lin,col));
+                    personagens.add(new Medica(lin,col));
                     posOk = true;
                 }
             }
@@ -216,14 +216,26 @@ public class Jogo extends Application {
         // Verifica se o jogo acabou
         long vivos = personagens
                     .stream()
-                    .filter(p->!(p instanceof Zumbi))
-                    .filter(p->!(p instanceof Nemesis))
+                    .filter(p->!(p.ehZumbi()))
                     .filter(p->p.estaVivo())
                     .count();
         if (vivos == 0){
             Alert msgBox = new Alert(AlertType.INFORMATION);
             msgBox.setHeaderText("Fim de Jogo");
             msgBox.setContentText("Todas as pessoas morreram!");
+            msgBox.showAndWait();  
+            System.exit(0);
+        }
+
+        long zumbisVivos = personagens
+                        .stream()
+                        .filter(p->p.ehZumbi()) 
+                        .filter(p->p.estaVivo())
+                        .count();
+        if (zumbisVivos == 0){
+            Alert msgBox = new Alert(AlertType.INFORMATION);
+            msgBox.setHeaderText("Fim de Jogo");
+            msgBox.setContentText("Voce ganhou\nTodos os zumbis morreram!");
             msgBox.showAndWait();
             System.exit(0);
         }

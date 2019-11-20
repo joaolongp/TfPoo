@@ -1,6 +1,6 @@
-public class Medico extends Personagem{
+public class Medica extends Personagem{
 
-    public Medico(int linInicial,int colInicial){
+    public Medica(int linInicial,int colInicial){
         super(10,"Medica",linInicial,colInicial);
     }
 
@@ -80,7 +80,6 @@ public class Medico extends Personagem{
 
     @Override
     public void verificaEstado() {
-        // Se esta morto retorna
         if (!this.estaVivo()){
             this.morre();
         }

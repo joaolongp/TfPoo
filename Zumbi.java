@@ -1,6 +1,6 @@
 public class Zumbi extends Personagem {
     public Zumbi(int linInicial,int colInicial){
-        super(10,"Zumbi",linInicial,colInicial);
+        super(20,"Zumbi",linInicial,colInicial);
     }
 
     @Override
@@ -60,9 +60,8 @@ public class Zumbi extends Personagem {
 
     @Override
     public void verificaEstado() {
-        // Se esta morto retorna
         if (!this.estaVivo()){
-            return;
+            this.morre();
         }
         if (this.getEnergia() == 0) {
             this.setImage("Zumbi Morto");
