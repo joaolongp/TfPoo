@@ -49,7 +49,7 @@ public class Nemesis extends Personagem{
                             // Recupera o personagem da célula vizinha
                             Personagem p = Jogo.getInstance().getCelula(l,c).getPersonagem();
                             // Se não for nulo, infecta
-                            if (p != null){
+                            if (p != null && !p.ehZumbi()){
                                 p.infecta();
                                 p.diminuiEnergia(5);
                             }

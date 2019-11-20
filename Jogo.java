@@ -91,7 +91,7 @@ public class Jogo extends Application {
         aux = new Image("file:Imagens\\back.jpg");
         imagens.put("Vazio", aux);
 
-        // Armazena a imagem da celula ula
+        // Armazena a imagem da celula nula
         imagens.put("Null", null);
     }
 
