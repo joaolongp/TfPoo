@@ -59,8 +59,8 @@ public class Policial extends Personagem{
         if(this.estaVivo()){
             int lin = this.getCelula().getLinha();
             int col = this.getCelula().getColuna();
-            for(int l=lin-1;l<=lin+1;l++){
-                for(int c=col-1;c<=col+1;c++){
+            for(int l=lin-2;l<=lin+2;l++){
+                for(int c=col-2;c<=col+2;c++){
                     // Se a posição é dentro do tabuleiro
                     if (l>=0 && l<Jogo.NLIN && c>=0 && c<Jogo.NCOL){
                         // Se não é a propria celula
@@ -70,6 +70,7 @@ public class Policial extends Personagem{
                             // Se não for nulo e for zumbi, mata
                             if (p != null && p.ehZumbi() && p.estaVivo()){
                                 p.diminuiEnergia(20);
+                                break;
                             }
                         }
                     }
