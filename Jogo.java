@@ -178,7 +178,8 @@ public class Jogo extends Application {
             }
         }
 
-        // Cria Policial
+        // Cria dois Policiais
+        for(int i=0;i<2;i++){
         posOk = false;
         while(!posOk){
             int lin = random.nextInt(NLIN);
@@ -188,6 +189,7 @@ public class Jogo extends Application {
                 posOk = true;
             }
         }
+    }
 
         // Define o botao que avança a simulação
         Button avanca = new Button("NextStep");

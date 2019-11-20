@@ -64,7 +64,7 @@ public class Nemesis extends Personagem{
     public void verificaEstado() {
         // Se esta morto retorna
         if (!this.estaVivo()){
-            return;
+            this.morre();
         }
         if (this.getEnergia() == 0) {
             this.setImage("Zumbi Morto");

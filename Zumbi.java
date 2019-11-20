@@ -10,6 +10,15 @@ public class Zumbi extends Personagem {
         this.getCelula().setImageFromPersonagem();
     }
 
+    // @Override
+    // public void morreFome(){
+    //     if (cont == 5){
+    //         super.morre();
+    //         this.setImage("Zumbi Morto");
+    //         this.getCelula().setImageFromPersonagem();
+    //     }
+    // }
+
     @Override
     public void atualizaPosicao() {
         if(this.estaVivo()){
