@@ -48,6 +48,13 @@ public abstract class Personagem {
         return getEnergia() > 0;
     }
 
+    public boolean ehZumbi(){
+        if(this.imagem.equals("Zumbi") || this.imagem.equals("Nemesis")){
+            return true;
+        }
+        return false;
+    }
+
     public String getImage(){
         return imagem;
     }

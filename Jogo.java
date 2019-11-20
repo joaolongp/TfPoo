@@ -179,7 +179,7 @@ public class Jogo extends Application {
         }
 
         // Cria Policial
-        boolean posOk = false;
+        posOk = false;
         while(!posOk){
             int lin = random.nextInt(NLIN);
             int col = random.nextInt(NCOL);
