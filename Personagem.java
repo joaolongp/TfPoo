@@ -23,7 +23,7 @@ public abstract class Personagem {
     public void diminuiEnergia(int valor){
         if (valor < 0) throw new IllegalArgumentException("Valor de energia invalido");
         energia -= valor;
-        if (energia < 0){
+        if (energia  < 0){
             energia = 0;
         }
     }

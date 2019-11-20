@@ -1,7 +1,24 @@
 public class Medica extends Personagem{
 
+    private Personagem alvo;
+
     public Medica(int linInicial,int colInicial){
         super(10,"Medica",linInicial,colInicial);
+    }
+
+    private Personagem defineAlvo(){
+        System.out.println("Procurando alvo");
+        for(int l=0;l<Jogo.NLIN;l++){
+            for(int c=0;c<Jogo.NCOL;c++){
+                Personagem p = Jogo.getInstance().getCelula(l, c).getPersonagem();
+                if (p != null && p instanceof Bobao && p.infectado()){
+                    alvo = p;
+                    System.out.println("Alvo definido: "+alvo.getImage());
+                    return p;
+                }
+            }
+        }
+        return null;
     }
 
     @Override
@@ -33,16 +50,34 @@ public class Medica extends Personagem{
     @Override
     public void atualizaPosicao() {
         if(this.estaVivo()){
-            int dirLin = Jogo.getInstance().aleatorio(3)-1;
-            int dirCol = Jogo.getInstance().aleatorio(3)-1;
+            if (alvo == null || !alvo.infectado()){
+                alvo = defineAlvo();
+                return;
+            }
+    
+            // Pega posicao atual do ZumbiEsperto
             int oldLin = this.getCelula().getLinha();
             int oldCol = this.getCelula().getColuna();
-            int lin = oldLin + dirLin;
-            int col = oldCol + dirCol;
+    
+            // Pega a posicao do alvo
+            int linAlvo = alvo.getCelula().getLinha();
+            int colAlvo = alvo.getCelula().getColuna();
+    
+            // Calcula o deslocamento
+            int lin = oldLin;
+            int col = oldCol;
+            if (lin < linAlvo) lin++;
+            if (lin > linAlvo) lin--;
+            if (col < colAlvo) col++;
+            if (col > colAlvo) col--;
+    
+            // Verifica se não saiu dos limites do tabuleiro
             if (lin < 0) lin = 0;
             if (lin >= Jogo.NLIN) lin = Jogo.NLIN-1;
             if (col < 0) col = 0;
             if (col >= Jogo.NCOL) col = Jogo.NCOL-1;
+    
+            // Verifica se não quer ir para uma celula ocupada
             if (Jogo.getInstance().getCelula(lin, col).getPersonagem() != null){
                 return;
             }else{
