@@ -69,7 +69,7 @@ public class Policial extends Personagem{
                             Personagem p = Jogo.getInstance().getCelula(l,c).getPersonagem();
                             // Se não for nulo e for zumbi, mata
                             if (p != null && p.ehZumbi() && p.estaVivo()){
-                                p.diminuiEnergia(20);
+                                p.diminuiEnergia(10);
                                 break;
                             }
                         }
